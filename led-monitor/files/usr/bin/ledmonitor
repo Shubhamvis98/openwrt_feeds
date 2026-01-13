@@ -1,0 +1,9 @@
+#!/bin/sh
+# Copyright (C) 2026 Shubham Vishwakarma <shubhamvis98@fossfrog.in>
+
+TAG='[led_monitor]'
+
+logger -t $TAG 'Starting led monitor service...'
+. /lib/functions/led_mon.sh
+led_state init
+
