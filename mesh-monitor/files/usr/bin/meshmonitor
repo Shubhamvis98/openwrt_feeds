@@ -3,7 +3,7 @@
 
 TAG='[mesh_monitor]'
 
-logger -t $TAG 'Starting mesh monitor service...'
+logger -t $TAG 'Checking for mesh in config...'
 
 if grep -q mesh /etc/ucentral/ucentral.active; then
 	if ! iwinfo | grep -q 'Mesh Point'; then
