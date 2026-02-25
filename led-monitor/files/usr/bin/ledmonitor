@@ -1,0 +1,6 @@
+#!/bin/sh
+# Copyright (C) 2026 Shubham Vishwakarma <shubhamvis98@fossfrog.in>
+
+. /lib/functions/led_mon.sh
+led_state init
+

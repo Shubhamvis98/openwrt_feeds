@@ -1,1 +1,1 @@
-# openwrt_feeds
+# openwrt feeds

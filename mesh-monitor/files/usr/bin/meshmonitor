@@ -1,0 +1,20 @@
+#!/bin/sh
+# Author: Shubham Vishwakarma <shubhamvis98>
+
+TAG='[mesh_monitor]'
+
+logger -t $TAG 'Checking for mesh in config...'
+
+if grep -q mesh /etc/ucentral/ucentral.active; then
+	MESHIFACE=$(iwinfo | grep 'Mesh Point' -B2 | awk '/ESSID/ {print $1}')
+	if [ -z "$MESHIFACE" ]; then
+		logger -t $TAG 'mesh interface is not up, reloading wifi...'
+		wifi down
+		sleep 10
+		wifi up
+		logger -t $TAG 'wifi reload completed.'
+	fi
+else
+	logger -t $TAG 'No mesh interface in current config.'
+fi
+
